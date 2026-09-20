@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find users that appear in the records of two JSON files.">
+    <title>JSON Mutual Finder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <p class="eyebrow">
+                v1.0
+            </p>
+            <h1>
+                JSON Mutual Victor Finder
+            </h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="panel" aria-labelledby="upload-heading">
+            <div class="section-heading">
+                <h2 id="upload-heading">
+                    Select two JSON files
+                </h2>
+                <p>
+                    Only the <code>user</code> property inside
+                    <code>records</code> will be considered.
+                </p>
+            </div>
+
+            <div class="file-grid">
+                <div class="file-input">
+                    <label for="file-one">
+                        First JSON file
+                    </label>
+                    <input id="file-one" type="file" accept=".json,application/json">
+                    <p id="file-one-status" class="file-status">
+                        No file selected.
+                    </p>
+                </div>
+
+                <div class="file-input">
+                    <label for="file-two">
+                        Second JSON file
+                    </label>
+                    <input id="file-two" type="file" accept=".json,application/json">
+                    <p id="file-two-status" class="file-status">
+                        No file selected.
+                    </p>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="compare-button" type="button" disabled>
+                    Find Mutuals
+                </button>
+                <button id="clear-button" type="button" class="button-secondary">
+                    Clear
+                </button>
+            </div>
+
+            <div id="error-message" class="message message-error" role="alert" hidden></div>
+        </section>
+
+        <section id="results-section" class="panel results-panel" aria-labelledby="results-heading" hidden>
+            <div class="section-heading">
+                <h2 id="results-heading">
+                    Mutuals
+                </h2>
+                <p id="results-description" aria-live="polite"></p>
+            </div>
+            <div id="mutuals-container" class="mutuals-container"></div>
+            <div id="no-mutuals" class="no-results" hidden>
+                No mutual users were found.
+            </div>
+        </section>
+
+        <section class="panel guide" aria-labelledby="guide-heading">
+            <div class="section-heading">
+                <p class="eyebrow">
+                    How it works
+                </p>
+                <h2 id="guide-heading">
+                    What does this comparer check?
+                </h2>
+            </div>
+
+            <ol>
+                <li>
+                    The application looks inside each file's
+                    <code>records</code> array.
+                </li>
+                <li>
+                    It extracts the <code>user</code> only.
+                </li>
+                <li>
+                    The two collections of users are compared.
+                </li>
+                <li>
+                    Users appearing in both files are displayed
+                    as "mutual victors".
+                </li>
+            </ol>
+
+            <aside class="tip">
+                <strong>
+                    Important:
+                </strong>
+                Since we only need mutual victors, this application completely ignores the <code>link</code>,
+                <code>percent</code>, and <code>hz</code> properties.
+            </aside>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>
+                Mutual Victor Finder
+            </p>
+            <code>
+                What else am I supposed to put in this footer dawg
+            </code>
+        </div>
+    </footer>
+
+    <script src="js/json-loader.js" defer></script>
+    <script src="js/app.js" defer></script>
+</body>
+
+</html>
